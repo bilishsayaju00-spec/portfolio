@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: #0D2318;
+    background-color: #E3EDE5;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    color: #052E16;
+    background: rgba(5, 150, 105, 0.28);
+  }
+
+  /* Custom Light Cyber Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #D8E7DC;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #84B594;
+    border: 1.5px solid #D8E7DC;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #059669;
+  }
+}
+
+@layer utilities {
+  .font-space {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .font-sans {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Cyber Glass Surface */
+  .cyber-glass {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(237, 245, 240, 0.92);
+    border: 1px solid #B4D5BF;
+  }
+
+  .cyber-glass-dark {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(9, 21, 14, 0.94);
+    border: 1px solid #1D472D;
+  }
+
+  .cyber-glass-hover {
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cyber-glass-hover:hover {
+    border-color: #059669;
+    box-shadow: 0 10px 28px -4px rgba(5, 150, 105, 0.16);
+  }
+
+  /* Cyber Grids & Patterns */
+  .cyber-grid-bg {
+    background-image: 
+      linear-gradient(90deg, rgba(5, 150, 105, 0.11) 1px, transparent 1px),
+      linear-gradient(rgba(5, 150, 105, 0.11) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  .cyber-cross-bg {
+    background-image: 
+      radial-gradient(circle at 18px 18px, rgba(5, 150, 105, 0.22) 1.5px, transparent 1.5px),
+      linear-gradient(90deg, rgba(5, 150, 105, 0.08) 1px, transparent 1px),
+      linear-gradient(rgba(5, 150, 105, 0.08) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  .cyber-dots-bg {
+    background-image: radial-gradient(rgba(5, 150, 105, 0.2) 1.4px, transparent 1.4px);
+    background-size: 24px 24px;
+  }
+}
+
+/* Animations */
+@keyframes cyberBeam {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  30% {
+    opacity: 0.6;
+  }
+  70% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(120vh);
+  }
+}
+
+.animate-cyber-beam {
+  animation: cyberBeam 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes cyberFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-cyber-float {
+  animation: cyberFloat 5s ease-in-out infinite;
+}
+
+@keyframes cyberPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.05);
+  }
+}
+
+.animate-cyber-pulse {
+  animation: cyberPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes traceDraw {
+  0% {
+    stroke-dashoffset: 200px;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+.animate-trace-draw {
+  stroke-dasharray: 20 8;
+  animation: traceDraw 14s linear infinite;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
