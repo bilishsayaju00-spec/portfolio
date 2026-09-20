@@ -1,0 +1,13 @@
+Options -MultiViews
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Keep existing assets and files available to the browser.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Let the React app handle client-side routes.
+  RewriteRule ^ index.html [L]
+</IfModule>
