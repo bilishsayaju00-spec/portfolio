@@ -1,12 +1,11 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base : './',
-  server: {
-    port: 3000,
-    open: false
-  }
-});
+  base: '/', // Use '/' if using custom domain bilishsayaju.com.np, or '/<repo-name>/' if using username.github.io/<repo-name>/
+  build: {
+    outDir: 'docs',
+    emptyOutDir: true,
+  },
+})
